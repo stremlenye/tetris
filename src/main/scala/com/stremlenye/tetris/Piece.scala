@@ -69,36 +69,70 @@ trait Piece {
 
 import Shape._
 
+/**
+  * ▦▦▦▦
+  * @param center
+  */
 case class Stick(center: Point) extends Piece {
   val shape = Line(Cell.x, Cell.x, Cell.x, Cell.x) ~>
               Line(Cell.x, Cell.x, Cell.x, Cell.x)
 }
 
+/**
+  * ▦▦
+  * ▦▦
+  * @param center
+  */
 case class Square(center: Point) extends Piece {
   val shape = Line(Cell.x, Cell.x) ~>
               Line(Cell.x, Cell.x)
 }
 
+/**
+  *  ▦
+  * ▦▦▦
+  * @param center
+  */
 case class Tblock(center: Point) extends Piece {
   override val shape = Line(Cell.o, Cell.x, Cell.o) ~>
                        Line(Cell.x, Cell.x, Cell.x)
 }
 
+/**
+  *  ▦▦
+  * ▦▦
+  * @param center
+  */
 case class InverseSkew(center: Point) extends Piece {
   override val shape = Line(Cell.o, Cell.x, Cell.x) ~>
                        Line(Cell.x, Cell.x, Cell.o)
 }
 
+/**
+  * ▦▦
+  *  ▦▦
+  * @param center
+  */
 case class OutverseSkew(center: Point) extends Piece {
   override val shape = Line(Cell.x, Cell.x, Cell.o) ~>
                        Line(Cell.o, Cell.x, Cell.x)
 }
 
+/**
+  * ▦
+  * ▦▦▦
+  * @param center
+  */
 case class InverseL(center: Point) extends Piece {
   override val shape = Line(Cell.x, Cell.o, Cell.o) ~>
                        Line(Cell.x, Cell.x, Cell.x)
 }
 
+/**
+  *   ▦
+  * ▦▦▦
+  * @param center
+  */
 case class OutverseJ(center: Point) extends Piece {
   override val shape = Line(Cell.o, Cell.o, Cell.x) ~>
                        Line(Cell.x, Cell.x, Cell.x)
