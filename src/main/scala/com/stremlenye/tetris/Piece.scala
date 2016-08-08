@@ -2,15 +2,13 @@ package com.stremlenye.tetris
 
 case class Point(horizontal: Int, vertical: Int)
 
-case class Cell(empty: Boolean)
+trait Cell
 
-object Cell {
-  def filled = Cell(false)
-  def x = filled
+case object Filled extends Cell
+case object Empty  extends Cell
 
-  def empty  = Cell(true)
-  def o = empty
-}
+case object X extends Cell
+case object O extends Cell
 
 trait Line {
   val cells: List[Cell]
@@ -74,8 +72,8 @@ import Shape._
   * @param center
   */
 case class Stick(center: Point) extends Piece {
-  val shape = Line(Cell.x, Cell.x, Cell.x, Cell.x) ~>
-              Line(Cell.x, Cell.x, Cell.x, Cell.x)
+  val shape = Line(X, X, X, X) ~>
+              Line(X, X, X, X)
 }
 
 /**
@@ -84,8 +82,8 @@ case class Stick(center: Point) extends Piece {
   * @param center
   */
 case class Square(center: Point) extends Piece {
-  val shape = Line(Cell.x, Cell.x) ~>
-              Line(Cell.x, Cell.x)
+  val shape = Line(X, X) ~>
+              Line(X, X)
 }
 
 /**
@@ -94,8 +92,8 @@ case class Square(center: Point) extends Piece {
   * @param center
   */
 case class Tblock(center: Point) extends Piece {
-  override val shape = Line(Cell.o, Cell.x, Cell.o) ~>
-                       Line(Cell.x, Cell.x, Cell.x)
+  override val shape = Line(O, X, O) ~>
+                       Line(X, X, X)
 }
 
 /**
@@ -104,8 +102,8 @@ case class Tblock(center: Point) extends Piece {
   * @param center
   */
 case class InverseSkew(center: Point) extends Piece {
-  override val shape = Line(Cell.o, Cell.x, Cell.x) ~>
-                       Line(Cell.x, Cell.x, Cell.o)
+  override val shape = Line(O, X, X) ~>
+                       Line(X, X, O)
 }
 
 /**
@@ -114,8 +112,8 @@ case class InverseSkew(center: Point) extends Piece {
   * @param center
   */
 case class OutverseSkew(center: Point) extends Piece {
-  override val shape = Line(Cell.x, Cell.x, Cell.o) ~>
-                       Line(Cell.o, Cell.x, Cell.x)
+  override val shape = Line(X, X, O) ~>
+                       Line(O, X, X)
 }
 
 /**
@@ -124,8 +122,8 @@ case class OutverseSkew(center: Point) extends Piece {
   * @param center
   */
 case class InverseL(center: Point) extends Piece {
-  override val shape = Line(Cell.x, Cell.o, Cell.o) ~>
-                       Line(Cell.x, Cell.x, Cell.x)
+  override val shape = Line(X, O, O) ~>
+                       Line(X, X, X)
 }
 
 /**
@@ -134,6 +132,6 @@ case class InverseL(center: Point) extends Piece {
   * @param center
   */
 case class OutverseJ(center: Point) extends Piece {
-  override val shape = Line(Cell.o, Cell.o, Cell.x) ~>
-                       Line(Cell.x, Cell.x, Cell.x)
+  override val shape = Line(O, O, X) ~>
+                       Line(X, X, X)
 }
