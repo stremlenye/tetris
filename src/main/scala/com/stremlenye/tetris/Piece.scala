@@ -72,8 +72,7 @@ import Shape._
   * @param center
   */
 case class Stick(center: Point) extends Piece {
-  val shape = Line(X, X, X, X) ~>
-              Line(X, X, X, X)
+  val shape = Line(X, X, X, X)
 }
 
 /**
