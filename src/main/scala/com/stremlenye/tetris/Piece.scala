@@ -1,14 +1,12 @@
 package com.stremlenye.tetris
 
+import Shape._
+
 case class Point(horizontal: Int, vertical: Int)
-
-
 
 trait Piece {
   val shape: Shape[_]
 }
-
-import Shape._
 
 /**
   * ▦▦▦▦
