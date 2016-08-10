@@ -5,6 +5,8 @@ trait Line {
   val length: Int
 
   require(cells.size == length)
+
+  def apply(x: Int): Cell = cells(x)
 }
 
 object Line {
@@ -15,6 +17,25 @@ object Line {
   def apply(cell1: Cell, cell2: Cell, cell3: Cell): Line3 = Line3(cell1, cell2, cell3)
 
   def apply(cell1: Cell, cell2: Cell, cell3: Cell, cell4: Cell): Line4 = Line4(cell1, cell2, cell3, cell4)
+
+  def build[A <: Line](appl: PartialFunction[Seq[Cell], A])(a: Seq[Cell]): A = appl(a)
+
+  implicit val l1: (Seq[Cell]) => Line1 = build({
+    case cell :: Nil => Line1(cell)
+  })
+
+  implicit val l2: (Seq[Cell]) => Line2 = build({
+    case cell1 :: cell2 :: Nil => Line2(cell1, cell2)
+  })
+
+  implicit val l3: (Seq[Cell]) => Line3 = build({
+    case cell1 :: cell2 :: cell3 :: Nil => Line3(cell1, cell2, cell3)
+  })
+
+  implicit val l4: (Seq[Cell]) => Line4 = build({
+    case cell1 :: cell2 :: cell3 :: cell4 :: Nil => Line4(cell1, cell2, cell3, cell4)
+  })
+
 }
 
 case class Line1(cell: Cell) extends Line {
