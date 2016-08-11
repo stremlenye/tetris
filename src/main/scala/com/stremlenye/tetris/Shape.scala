@@ -1,10 +1,10 @@
 package com.stremlenye.tetris
 
-class Shape[A <: Line](val matrix: Seq[A]) {
+case class Shape[A <: Line](matrix: Seq[A]) {
   import Shape._
 
   require(matrix.nonEmpty)
-  require(matrix.length == matrix.head.length)
+//  require(matrix.length == matrix.head.length)
 
   val size = matrix.size
 
@@ -14,15 +14,13 @@ class Shape[A <: Line](val matrix: Seq[A]) {
 }
 
 object Shape {
-  implicit def apply[A <: Line] (lines: A*): Shape[A] = new Shape[A](lines)
-
-  implicit def apply[A <: Line] (line: A): Shape[A] = Shape(Seq(line):_*)
+  implicit def apply[A <: Line] (line: A): Shape[A] = Shape(Seq(line))
 
   private def transpose[A <: Line](shape: Shape[A])(implicit conversion: Seq[Cell] => A): Shape[A] =
     (for {
-      x <- 0 to shape.matrix.head.length
-      y <- 0 to shape.matrix.size
-    } yield shape.matrix(x)(y)).grouped(shape.size)
+      x <- shape.matrix.indices
+      y <- shape.matrix.indices
+    } yield shape.matrix(y)(x)).grouped(shape.size)
       .toList match {
       case Nil => throw new RuntimeException("lines are empty")
       case head :: tail => tail.foldLeft(Shape[A](head))((prev, next) =>  prev ~> Shape[A](next))

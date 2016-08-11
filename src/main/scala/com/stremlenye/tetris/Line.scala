@@ -18,7 +18,11 @@ object Line {
 
   def apply(cell1: Cell, cell2: Cell, cell3: Cell, cell4: Cell): Line4 = Line4(cell1, cell2, cell3, cell4)
 
-  def build[A <: Line](appl: PartialFunction[Seq[Cell], A])(a: Seq[Cell]): A = appl(a)
+  def build[A <: Line](appl: PartialFunction[Seq[Cell], A])(a: Seq[Cell]): A =
+    if (appl.isDefinedAt(a.toList))
+      appl(a.toList)
+    else
+      throw new RuntimeException(s"Wrong line size: ${a.size}")
 
   implicit val l1: (Seq[Cell]) => Line1 = build({
     case cell :: Nil => Line1(cell)
@@ -38,22 +42,22 @@ object Line {
 
 }
 
-case class Line1(cell: Cell) extends Line {
-  override val length = 1
-  override val cells: List[Cell] = List(cell)
-}
+case class Line1(cell: Cell) extends {
+  val length = 1
+  val cells: List[Cell] = List(cell)
+} with Line
 
-case class Line2(cell1: Cell, cell2: Cell) extends Line {
+case class Line2(cell1: Cell, cell2: Cell) extends {
   val length = 2
-  override val cells: List[Cell] = List(cell1, cell2)
-}
+  val cells: List[Cell] = List(cell1, cell2)
+} with Line
 
-case class Line3(cell1: Cell, cell2: Cell, cell3: Cell) extends Line {
-  override val length: Int = 3
-  override val cells: List[Cell] = List(cell1, cell2, cell3)
-}
+case class Line3(cell1: Cell, cell2: Cell, cell3: Cell) extends {
+  val length: Int = 3
+  val cells: List[Cell] = List(cell1, cell2, cell3)
+} with Line
 
-case class Line4(cell1: Cell, cell2: Cell, cell3: Cell, cell4: Cell) extends Line {
-  override val length: Int = 4
-  override val cells: List[Cell] = List(cell1, cell2, cell3, cell4)
-}
+case class Line4(cell1: Cell, cell2: Cell, cell3: Cell, cell4: Cell) extends {
+  val length: Int = 4
+  val cells: List[Cell] = List(cell1, cell2, cell3, cell4)
+} with Line
