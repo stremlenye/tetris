@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ScalaCompilerConfiguration">
     <profile name="SBT 1" modules="tetris">
-      <option name="implicitConversions" value="true" />
+      <parameters>
+        <parameter value="-Ypartial-unification" />
+        <parameter value="-Yliteral-types" />
+      </parameters>
     </profile>
   </component>
 </project>
