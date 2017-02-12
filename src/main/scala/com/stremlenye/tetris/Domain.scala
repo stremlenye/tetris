@@ -22,11 +22,11 @@ case class Matrix[X <: Int, Y <: Int](cells: FixedSizeList[Y, FixedSizeList[X, C
         }), rightTail)
       }
 
-    Matrix[Y, X](FixedSizeList[X, FixedSizeList[Y, Cell]](go(cells.toList.map(_.toList))._1.map(FixedSizeList[Y, Cell](_: _*)): _*))
+    Matrix[Y, X](FixedSizeList[X, FixedSizeList[Y, Cell]](go(cells.toList.map(_.toList))._1.map(FixedSizeList[Y, Cell](_))))
   }
 
   def <+> (mx: Matrix[X, Y]): Matrix[X, Y] =
     Matrix[X, Y](FixedSizeList[Y, FixedSizeList[X, Cell]](cells.zip(mx.cells).map { tpl =>
-      FixedSizeList[X, Cell](tpl._1.zip(tpl._2).map(t => Cell(t._1 || t._2)): _*)
-    }: _*))
+      FixedSizeList[X, Cell](tpl._1.zip(tpl._2).map(t => Cell(t._1 || t._2)))
+    }))
 }

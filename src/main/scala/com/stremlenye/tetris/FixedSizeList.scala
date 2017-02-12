@@ -9,3 +9,7 @@ case class FixedSizeList[X <: Int, +A](s: A*)(implicit x: ValueOf[X]) extends Se
 
   override def iterator: Iterator[A] = s.iterator
 }
+
+object FixedSizeList {
+  def apply(s: Seq[A])(implicit x: ValueOf[X]): FixedSizeList[X, A] = FixedSizeList[X, A](s: _*)
+}

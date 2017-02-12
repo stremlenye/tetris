@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b847a04-fe75-454c-9eb8-2ed722a08547" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Matrix.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Cell.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Line.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/experimental/Dimension.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/MatrixTest.scala" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/ShapeTest.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Piece.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Piece.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Shape.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Shape.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/PlaygroundTest.scala" afterPath="$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/PlaygroundTest.scala" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Matrix.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Domain.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala" />
     </list>
     <ignored path="tetris.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -59,21 +51,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="PlaygroundTest.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PlaygroundTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/PlaygroundTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-563">
+            <state relative-caret-position="308">
               <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Matrix.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Matrix.scala">
+      <file leaf-file-name="Domain.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Domain.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+            <state relative-caret-position="389">
+              <caret line="24" column="120" lean-forward="false" selection-start-line="24" selection-start-column="120" selection-end-line="24" selection-end-column="120" />
               <folding />
             </state>
           </provider>
@@ -82,8 +74,8 @@
       <file leaf-file-name="FixedSizeList.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="56">
-              <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+            <state relative-caret-position="364">
+              <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -150,9 +142,10 @@
         <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Shape.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Piece.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Cell.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala" />
         <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Matrix.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/PlaygroundTest.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Domain.scala" />
       </list>
     </option>
   </component>
@@ -287,7 +280,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Matrix.scala" />
+              <option name="myItemId" value="Domain.scala" />
               <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1133,26 +1126,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Matrix.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/PlaygroundTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+        <state relative-caret-position="308">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="56">
-          <caret line="2" column="34" lean-forward="false" selection-start-line="2" selection-start-column="34" selection-end-line="2" selection-end-column="34" />
+        <state relative-caret-position="364">
+          <caret line="13" column="6" lean-forward="false" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/PlaygroundTest.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Domain.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-563">
-          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+        <state relative-caret-position="389">
+          <caret line="24" column="120" lean-forward="false" selection-start-line="24" selection-start-column="120" selection-end-line="24" selection-end-column="120" />
           <folding />
         </state>
       </provider>
