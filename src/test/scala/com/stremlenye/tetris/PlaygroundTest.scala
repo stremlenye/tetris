@@ -2,20 +2,51 @@ package com.stremlenye.tetris
 
 import org.scalatest.{FlatSpec, Matchers}
 
-case class Residue[M <: Int](n: Int) extends AnyVal {
-  def +(rhs: Residue[M])(implicit m: ValueOf[M]): Residue[M] =
-    Residue((this.n + rhs.n) % valueOf[M])
-}
-
 class PlaygroundTest extends FlatSpec with Matchers {
 
-  it should "be fun" in {
-    val fiveModTen = Residue[10](5)
-    val nineModTen = Residue[10](9)
+  it should "be matrix" in {
+    val r: Matrix[3, 2] = Matrix[2, 3](FixedSizeList[3, FixedSizeList[2, Cell]](
+      FixedSizeList[2, Cell](Cell(true), Cell(false)),
+      FixedSizeList[2, Cell](Cell(true), Cell(false)),
+      FixedSizeList[2, Cell](Cell(true), Cell(false))
+    )).rotateClockwise
 
-    fiveModTen + nineModTen      // OK == Residue[10](4)
-
-    val fourModEleven = Residue[11](4)
+    val expected = Matrix[3,2](FixedSizeList[2,  FixedSizeList[3, Cell]](
+      FixedSizeList[3, Cell](Cell(true), Cell(true), Cell(true)),
+      FixedSizeList[3, Cell](Cell(false), Cell(false), Cell(false))
+    ))
+    assert(r == expected)
   }
 
+  it should "be able to rotate for 360 degrees" in {
+    val expected = Matrix[2, 3](FixedSizeList[3,  FixedSizeList[2, Cell]](
+      FixedSizeList[2, Cell](Cell(true),Cell(false)),
+      FixedSizeList[2, Cell](Cell(true),Cell(false)),
+      FixedSizeList[2, Cell](Cell(true),Cell(false))
+    ))
+
+    val r = expected.rotateClockwise.rotateClockwise.rotateClockwise.rotateClockwise
+
+    assert(r == expected)
+  }
+
+  it should "merge two matrixes" in {
+    val l = Matrix[2,2](FixedSizeList[2,  FixedSizeList[2, Cell]](
+      FixedSizeList[2, Cell](Cell(true), Cell(false)),
+      FixedSizeList[2, Cell](Cell(true), Cell(false))
+    ))
+    val r = Matrix[2,2](FixedSizeList[2,  FixedSizeList[2, Cell]](
+      FixedSizeList[2, Cell](Cell(true), Cell(true)),
+      FixedSizeList[2, Cell](Cell(true), Cell(false))
+    ))
+
+    val result = l <+> r
+
+    val expected = Matrix[2,2](FixedSizeList[2,  FixedSizeList[2, Cell]](
+      FixedSizeList[2, Cell](Cell(true), Cell(true)),
+      FixedSizeList[2, Cell](Cell(true), Cell(false))
+    ))
+
+    assert(result == expected)
+  }
 }
