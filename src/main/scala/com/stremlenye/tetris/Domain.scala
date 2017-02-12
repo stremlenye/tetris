@@ -1,8 +1,15 @@
 package com.stremlenye.tetris
 
+import FixedSizeList._
+
 case class Cell(value: Boolean) extends AnyVal {
   def || (cell: Cell) =
     value || cell.value
+}
+
+object Cell {
+  val X = Cell(true)
+  val Y = Cell(false)
 }
 
 case class Matrix[X <: Int, Y <: Int](cells: FixedSizeList[Y, FixedSizeList[X, Cell]])(implicit x: ValueOf[X], y: ValueOf[Y]) {
@@ -22,11 +29,11 @@ case class Matrix[X <: Int, Y <: Int](cells: FixedSizeList[Y, FixedSizeList[X, C
         }), rightTail)
       }
 
-    Matrix[Y, X](FixedSizeList[X, FixedSizeList[Y, Cell]](go(cells.toList.map(_.toList))._1.map(FixedSizeList[Y, Cell](_))))
+    Matrix[Y, X](go(cells.toList.map(_.toList))._1.map(_.fix[Y]).fix[X])
   }
 
   def <+> (mx: Matrix[X, Y]): Matrix[X, Y] =
-    Matrix[X, Y](FixedSizeList[Y, FixedSizeList[X, Cell]](cells.zip(mx.cells).map { tpl =>
-      FixedSizeList[X, Cell](tpl._1.zip(tpl._2).map(t => Cell(t._1 || t._2)))
-    }))
+    Matrix[X, Y](cells.zip(mx.cells).map { tpl =>
+      tpl._1.zip(tpl._2).map(t => Cell(t._1 || t._2)).fix[X]
+    }.fix[Y])
 }
