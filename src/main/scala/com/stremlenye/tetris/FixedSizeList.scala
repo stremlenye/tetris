@@ -1,4 +1,5 @@
 package com.stremlenye.tetris
+
 import shapeless.syntax.std.tuple._
 
 class FixedSizeList[X <: Int, +A](s: Seq[A])(implicit x: ValueOf[X]) extends Seq[A] {
@@ -22,7 +23,7 @@ object FixedSizeList {
   implicit def fromTuple[A](t: Tuple1[A]): AugmentedFixedSizeList[A] =
     new AugmentedFixedSizeList[A](Seq(t._1))
 
-  implicit def fromTuple[A](t: Tuple2[A, A]): AugmentedFixedSizeList[A] =
+  implicit def fromTuple[A](t: (A, A)): AugmentedFixedSizeList[A] =
     new AugmentedFixedSizeList[A](Seq(t._1, t._2))
 
   implicit def fromTuple[A](t: (A, A, A)): AugmentedFixedSizeList[A] =

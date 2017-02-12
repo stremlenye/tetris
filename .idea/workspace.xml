@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b847a04-fe75-454c-9eb8-2ed722a08547" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/MatrixTest.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/PlaygroundTest.scala" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/tetris.iml" afterPath="$PROJECT_DIR$/.idea/modules/tetris.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.sbt" afterPath="$PROJECT_DIR$/build.sbt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Domain.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Domain.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/scala_compiler.xml" afterPath="$PROJECT_DIR$/.idea/scala_compiler.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala" afterPath="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala" />
     </list>
     <ignored path="tetris.iws" />
@@ -56,11 +51,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MatrixTest.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MatrixTest.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/MatrixTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
+            <state relative-caret-position="1568">
+              <caret line="56" column="0" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="56" selection-end-column="0" />
               <folding>
                 <element signature="e#127#140#0" expanded="true" />
               </folding>
@@ -78,11 +73,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FixedSizeList.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="FixedSizeList.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="305">
-              <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state relative-caret-position="445">
+              <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tuples.scala" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/.ivy2/cache/com.chuusai/shapeless_2.12/srcs/shapeless_2.12-2.3.2-sources.jar!/shapeless/syntax/std/tuples.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="427">
+              <caret line="226" column="6" lean-forward="false" selection-start-line="226" selection-start-column="6" selection-end-line="226" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -154,9 +159,9 @@
         <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Matrix.scala" />
         <option value="$PROJECT_DIR$/build.sbt" />
         <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/Domain.scala" />
-        <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/PlaygroundTest.scala" />
         <option value="$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/MatrixTest.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala" />
       </list>
     </option>
   </component>
@@ -1159,14 +1164,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.ivy2/cache/com.chuusai/shapeless_2.12/srcs/shapeless_2.12-2.3.2-sources.jar!/shapeless/syntax/std/tuples.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2128">
-          <caret line="90" column="17" lean-forward="false" selection-start-line="90" selection-start-column="17" selection-end-line="90" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.ivy2/cache/org.scala-lang/scala-library/srcs/scala-library-2.12.1-sources.jar!/scala/Tuple1.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
@@ -1209,11 +1206,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala">
+    <entry file="file://$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/MatrixTest.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="305">
-          <caret line="20" column="0" lean-forward="true" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1568">
+          <caret line="56" column="0" lean-forward="true" selection-start-line="53" selection-start-column="30" selection-end-line="56" selection-end-column="0" />
+          <folding>
+            <element signature="e#127#140#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1225,13 +1224,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/scala/com/stremlenye/tetris/MatrixTest.scala">
+    <entry file="jar://$USER_HOME$/.ivy2/cache/com.chuusai/shapeless_2.12/srcs/shapeless_2.12-2.3.2-sources.jar!/shapeless/syntax/std/tuples.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="48" column="26" lean-forward="true" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-          <folding>
-            <element signature="e#127#140#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="427">
+          <caret line="226" column="6" lean-forward="false" selection-start-line="226" selection-start-column="6" selection-end-line="226" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/com/stremlenye/tetris/FixedSizeList.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
