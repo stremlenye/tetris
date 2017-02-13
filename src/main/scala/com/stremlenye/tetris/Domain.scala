@@ -32,6 +32,9 @@ case class Matrix[X <: Int, Y <: Int](cells: FixedSizeList[Y, FixedSizeList[X, C
     Matrix[Y, X](go(cells.toList.map(_.toList))._1.map(_.fix[Y]).fix[X])
   }
 
+  def rotateCounterclockwise: Matrix[Y, X] =
+    this.rotateClockwise.rotateClockwise.rotateClockwise // TODO: normal implementation
+
   def <+> (mx: Matrix[X, Y]): Matrix[X, Y] =
     Matrix[X, Y](cells.zip(mx.cells).map { tpl =>
       tpl._1.zip(tpl._2).map(t => Cell(t._1 || t._2)).fix[X]
