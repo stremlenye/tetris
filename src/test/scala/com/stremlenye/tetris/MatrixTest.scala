@@ -53,4 +53,27 @@ class MatrixTest extends FlatSpec with Matchers {
 
     assert(result == expected)
   }
+
+  it should "blah" in {
+    trait Executor {
+      type Out
+      def execute: Out
+    }
+
+    def run[E <: Executor](implicit p: E): p.Out = {
+      p.execute
+    }
+
+    def run2[E <: Executor](implicit p: E): p.Out = {
+      run
+    }
+
+    case object Stringer extends Executor {
+      override type Out = String
+
+      override def execute: this.Out = "test"
+    }
+
+    assert(run2(Stringer) == "test")
+  }
 }
